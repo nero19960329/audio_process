@@ -9,7 +9,6 @@ import seperate_wav as sw
 import extract_feature as ef
 import sys
 from sklearn.externals import joblib
-from StringIO import StringIO
 import numpy as np
 
 def predict(wav_data, modelName='./classifier.model'):
@@ -76,7 +75,7 @@ if __name__ == '__main__':
     else:
         wave_data_list = sw.seperate(sys.argv[1])
         authors = joblib.load(sys.argv[2])
-        
+
     for data in wave_data_list:
         wave_data = data.T.tostring()
         if len(wave_data) < 10000:
